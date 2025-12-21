@@ -5,12 +5,109 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaikoProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="太鼓达人" 
+        Height="600" 
+        Width="900"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="Black"
+        KeyDown="Window_KeyDown">
+    
     <Grid>
-        <Button Content="Start"
-        Width="120" Height="40"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        Click="StartButton_Click"/>
+        <Grid.Background>
+            <!-- 修正资源路径 -->
+            <ImageBrush ImageSource="pack://application:,,,/Resources/taiko_bg.jpg" 
+                        Stretch="UniformToFill" 
+                        Opacity="0.8"/>
+        </Grid.Background>
+        
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            
+            <TextBlock Text="太鼓の達人" 
+                       FontSize="72" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       FontFamily="Yu Gothic UI" 
+                       Margin="0,0,0,40"
+                       HorizontalAlignment="Center">
+                <TextBlock.Shadow>
+                    <DropShadowBitmapEffect Color="DarkRed" 
+                                           ShadowDepth="3" 
+                                           Softness="0.3"/>
+                </TextBlock.Shadow>
+            </TextBlock>
+            
+            <TextBlock Text="Taiko no Tatsujin" 
+                       FontSize="24" 
+                       Foreground="#FFAA3333" 
+                       FontFamily="Yu Gothic UI"
+                       Margin="0,0,0,60"
+                       HorizontalAlignment="Center"/>
+            
+            <Button x:Name="StartButton" 
+                    Content="开始游戏" 
+                    Width="200" 
+                    Height="60" 
+                    FontSize="24"
+                    FontWeight="Bold"
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Center"
+                    Click="StartButton_Click"
+                    Cursor="Hand"
+                    FocusVisualStyle="{x:Null}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FFE53935"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                        <Setter Property="BorderBrush" Value="#FFB71C1C"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border"
+                                            Background="{TemplateBinding Background}" 
+                                            BorderBrush="{TemplateBinding BorderBrush}" 
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="5">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <!-- 新增焦点视觉反馈 -->
+                                        <Trigger Property="IsKeyboardFocused" Value="True">
+                                            <Setter TargetName="border" Property="BorderBrush" Value="Gold"/>
+                                            <Setter TargetName="border" Property="BorderThickness" Value="3"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFEF5350"/>
+                                <Setter Property="BorderBrush" Value="#FFD32F2F"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#FFC62828"/>
+                                <Setter Property="BorderBrush" Value="#FFB71C1C"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            
+            <!-- 优化提示文本颜色 -->
+            <TextBlock Text="使用 D/F 键敲击红色鼓，J/K 键敲击蓝色鼓" 
+                       FontSize="16" 
+                       Foreground="#FFCCCCAA"
+                       Margin="0,40,0,0"
+                       HorizontalAlignment="Center"/>
+            
+            <TextBlock Text="IERG3080 Fall 2025 - Group Project" 
+                       FontSize="12" 
+                       Foreground="#888888" 
+                       Margin="0,60,0,0"
+                       HorizontalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Window>
