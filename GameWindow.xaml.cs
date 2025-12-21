@@ -18,12 +18,12 @@ using TaikoProject.Core;
 namespace TaikoProject
 {
     /// <summary>
-    /// 游戏主界面。
-    /// A 在这里：
-    /// - 创建 GameManager
-    /// - 建立游戏循环（定时调用 Update）
-    /// - 处理键盘输入，并转发给 GameManager
-    /// C 以后会在 RefreshUI 里画音符、分数等。
+    /// Main game interface.
+    /// A is here:
+    /// - Create GameManager
+    /// - Establish game loop (timely call Update)
+    /// - Handle keyboard input and forward it to GameManager
+    /// C will later draw musical notes, scores, etc. in RefreshUI.
     /// </summary>
     public partial class GameWindow : Window
     {
@@ -34,46 +34,46 @@ namespace TaikoProject
         {
             InitializeComponent();
 
-            // 创建并启动一局游戏。
+            // Create and start a game.
             _gameManager = new GameManager();
             _gameManager.StartGame();
 
-            // 初始化时间，后面用来算 deltaTime。
+            // Initialization time, used later to calculate deltaTime.
             _lastUpdateTime = DateTime.Now;
 
-            // 启动游戏循环（定时调用 Update）。
+            // Start the game loop (Call Update periodically).
             StartGameLoop();
 
-            // 让窗口可以接收键盘事件。
+            // Enables the window to receive keyboard events.
             this.KeyDown += GameWindow_KeyDown;
             this.Focusable = true;
             this.Focus();
         }
 
         /// <summary>
-        /// 使用 DispatcherTimer 实现一个简单的游戏循环。
-        /// 每隔 16ms（约 60 FPS）调用一次 _gameManager.Update 和 RefreshUI。
+        /// Implement a simple game loop using DispatcherTimer.
+        /// Call _gameManager.Update and RefreshUI every 16ms (approximately 60 FPS).
         /// </summary>
         private void StartGameLoop()
         {
             var timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(16); // 约 60 帧
+            timer.Interval = TimeSpan.FromMilliseconds(16); // Approximately 60 frames
             timer.Tick += (s, e) =>
             {
                 var now = DateTime.Now;
                 var delta = (now - _lastUpdateTime).TotalSeconds;
                 _lastUpdateTime = now;
 
-                // 更新游戏逻辑（时间推进、音符状态等）。
+                // Update game logic (time progression, note status, etc.).
                 _gameManager.Update(delta);
 
-                // 根据最新的游戏状态刷新界面（由 C 来填）。
+                // Refresh the interface based on the latest game status (filled in by C).
                 RefreshUI();
 
-                // 如果 GameManager 标记游戏结束，可以在这里跳到 ResultWindow。
+                // If GameManager marks the game as over, you can jump to the ResultWindow here.
                 if (_gameManager.IsFinished)
                 {
-                    // TODO：等你们准备好展示结果时再启用：
+                    // TODO：Activate it only when you are ready to present the results:
                     // var w = new ResultWindow();
                     // w.Show();
                     // this.Close();
@@ -83,25 +83,24 @@ namespace TaikoProject
         }
 
         /// <summary>
-        /// 刷新界面。
-        /// 之后 C 会在这里根据 _gameManager.Notes 和 ScoreManager 的数据，
-        /// 更新音符位置、分数文本、判定文本等。
-        /// 现在先留空，以后再实现。
+        /// Refresh the interface.
+        /// C will then update the note positions, score text, judgment text, etc., here based on the data from _gameManager.Notes and ScoreManager.
+        /// Leave this blank for now, it will be implemented later.
         /// </summary>
         private void RefreshUI()
         {
-            // TODO: C 实现 UI 更新逻辑。
+            // TODO: Implement the UI update logic in C.
         }
 
         /// <summary>
-        /// 处理键盘输入。
-        /// 这里把按键映射为红鼓 / 蓝鼓，然后转发给 GameManager。
-        /// 判定逻辑在 GameManager.ProcessHit 中完成。
+        /// Handle keyboard input.
+        /// Here, key presses are mapped to red drum / blue drum, and then forwarded to GameManager.
+        /// The decision logic is completed in GameManager.ProcessHit.
         /// </summary>
         private void GameWindow_KeyDown(object sender, KeyEventArgs e)
         {
-            // 这里先随便定一个键位：
-            // D/F 视为红鼓；J/K 视为蓝鼓。
+            // Let's assign some keys here:
+            // D/F are considered the red drum; J/K are considered the blue drum.
             if (e.Key == Key.D || e.Key == Key.F)
             {
                 _gameManager.ProcessHit(NoteColor.Red);

@@ -8,35 +8,35 @@ using System.Threading.Tasks;
 namespace TaikoProject.Core
 {
     /// <summary>
-    /// 管理一局游戏的核心逻辑：
-    /// - 谱面（音符列表）
-    /// - 当前时间
-    /// - 分数管理
-    /// - 是否结束
-    /// 这里先写框架，具体判定逻辑留给 B 来填。
+    /// Core logic for managing a game:
+    /// - Sheet music (note list)
+    /// - Current time
+    /// - Score management
+    /// - Game over status
+    /// Here's the framework; the specific decision logic will be filled in by B.
     /// </summary>
     public class GameManager
     {
         /// <summary>
-        /// 当前这局游戏的所有音符（单人模式）。
-        /// 以后做多难度 / 2P 时，可以扩展为多个列表。
+        /// All notes in the current game (single-player mode).
+        /// This can be expanded into multiple lists when creating multiple difficulty levels/2P modes in the future.
         /// </summary>
         public List<Note> Notes { get; private set; }
 
         /// <summary>
-        /// 分数与判定统计。
+        /// Scores and judgment statistics.
         /// </summary>
         public ScoreManager ScoreManager { get; private set; }
 
         /// <summary>
-        /// 当前游戏进行到的时间（秒）。
-        /// 每次 Update 时由 A 这边传入 deltaTime 累加。
+        ///The current game time (in seconds).
+        /// This is accumulated by deltaTime passed from A during each Update.
         /// </summary>
         public double CurrentTime { get; private set; }
 
         /// <summary>
-        /// 游戏是否结束（歌曲播完、所有音符处理完）。
-        /// GameWindow 会根据这个跳转到 Result 界面。
+        /// Has the game ended (song finished playing, all notes processed)?
+        /// GameWindow will redirect to the Result screen based on this.
         /// </summary>
         public bool IsFinished { get; private set; }
 
@@ -47,10 +47,10 @@ namespace TaikoProject.Core
         }
 
         /// <summary>
-        /// 开始一局游戏：
-        /// - 重置时间
-        /// - 重置分数
-        /// - 加载谱面（目前先写死几个音符，之后可以改成从文件读）。
+        /// Start a game:
+        /// - Reset time
+        /// - Reset score
+        /// - Load sheet music (currently hardcodes a few notes, can be changed to read from a file later).
         /// </summary>
         public void StartGame()
         {
@@ -58,45 +58,44 @@ namespace TaikoProject.Core
             IsFinished = false;
             Notes.Clear();
 
-            // TODO: 这里先硬编码几条音符，方便测试。
-            // 例如：2 秒时一个红鼓，3 秒时一个蓝鼓。
+            // TODO: Here are some hard-coded notes for easier testing.
+            // For example: a red drum at 2 seconds, a blue drum at 3 seconds.
             Notes.Add(new Note { Time = 2.0, Color = NoteColor.Red });
             Notes.Add(new Note { Time = 3.0, Color = NoteColor.Blue });
         }
 
         /// <summary>
-        /// 每一帧 / 每一次计时器 tick 调用。
-        /// deltaTime：这一小段时间过去了多少秒（由 GameWindow 传入）。
+        /// Every frame / every time a timer tick is called.
+        /// deltaTime: How many seconds have passed in this short period of time (passed by GameWindow).
         /// </summary>
         public void Update(double deltaTime)
         {
             if (IsFinished) return;
 
-            // 累加当前时间。
+            // Accumulate the current time.
             CurrentTime += deltaTime;
 
-            // TODO: B 在这里根据 CurrentTime 更新音符状态，
-            // 判断哪些已经错过，是否标记为 Bad，等等。
-
-            // TODO: 当歌曲结束 + 所有音符都处理完时，把 IsFinished 设为 true。
-            // 目前先简单写一个条件，例如时间大于某个值：
+            // TODO: B Update the note status here based on CurrentTime,
+            // Determine which notes have been missed, whether to mark them as Bad, etc.
+            // TODO: When the song ends and all notes have been processed, set IsFinished to true.
+            // For now, let's write a simple condition, for example, if the time is greater than a certain value:
             // if (CurrentTime > 10.0) IsFinished = true;
         }
 
         /// <summary>
-        /// 当玩家按下某个键（红 / 蓝）时，由 GameWindow 调用。
-        /// 这里根据 CurrentTime 和目标音符时间做判定（perfect / good / bad）。
-        /// 具体算法由 B 实现。
+        /// This is called by GameWindow when the player presses a key (red/blue).
+        // This is where the judgment (perfect/good/bad) is made based on CurrentTime and the target note's time.
+        /// The specific algorithm is implemented by B.
         /// </summary>
         public void ProcessHit(NoteColor color)
         {
             if (IsFinished) return;
 
-            // TODO: B 完成：
-            // 1. 在 Notes 中找到「最接近当前时间且未被处理」的、同颜色的音符。
-            // 2. 计算时间差，根据差距决定 Perfect / Good / Bad。
-            // 3. 调用 ScoreManager.AddPerfect / AddGood / AddBad。
-            // 4. 标记该音符已被处理（需要在 Note 中加状态字段）。
+            // TODO: B Complete:
+            // 1. Find the note of the same color that is closest to the current time and has not been processed in Notes.
+            // 2. Calculate the time difference and determine Perfect/Good/Bad based on the difference.
+            // 3. Call ScoreManager.AddPerfect/AddGood/AddBad.
+            // 4. Mark the note as processed (a status field needs to be added to the Note).
         }
     }
 }

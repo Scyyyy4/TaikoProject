@@ -24,3 +24,4 @@ D:\CUHK\COURSES\year 4\sem 1\IERG 3080\code\TaikoProject\obj\Debug\net8.0-window
 D:\CUHK\COURSES\year 4\sem 1\IERG 3080\code\TaikoProject\obj\Debug\net8.0-windows\GameWindow.baml
 D:\CUHK\COURSES\year 4\sem 1\IERG 3080\code\TaikoProject\obj\Debug\net8.0-windows\ResultWindow.baml
 D:\CUHK\COURSES\year 4\sem 1\IERG 3080\code\TaikoProject\obj\Debug\net8.0-windows\SongSelectWindow.baml
+D:\CUHK\COURSES\year 4\sem 1\IERG 3080\code\TaikoProject\obj\Debug\net8.0-windows\TaikoProject.sourcelink.json
