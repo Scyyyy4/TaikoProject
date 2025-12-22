@@ -89,18 +89,22 @@ namespace TaikoProject
 
         private void LoadHitSounds()
         {
+          
+
             try
             {
-                // Load red hit sound
-                _redHitSound.Open(new Uri("pack://application:,,,/Resource/red.wav"));
-                
-                // Load blue hit sound
-                _blueHitSound.Open(new Uri("pack://application:,,,/Resource/blue.wav"));
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                string redPath = System.IO.Path.Combine(baseDir, "Resource", "red.wav");
+                string bluePath = System.IO.Path.Combine(baseDir, "Resource", "blue.wav");
+
+                _redHitSound.Open(new Uri(redPath, UriKind.Absolute));
+                _blueHitSound.Open(new Uri(bluePath, UriKind.Absolute));
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load hit sounds: {ex.Message}", "Sound Error", 
-                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Failed to load hit sounds: {ex.Message}",
+                                "Sound Error",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -276,6 +280,8 @@ namespace TaikoProject
         /// </summary>
         private void GameWindow_KeyDown(object sender, KeyEventArgs e)
         {
+            Console.WriteLine($"Key pressed: {e.Key}");
+            //test for red and blue hits
             bool isRedHit = (e.Key == Key.D || e.Key == Key.F);
             bool isBlueHit = (e.Key == Key.J || e.Key == Key.K);
             

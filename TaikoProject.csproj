@@ -15,12 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resource\blue.wav">
+    <Content Include="Resource\blue.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resource\red.wav">
+    </Content>
+    <Content Include="Resource\red.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </Content>
     <Resource Include="Resource\taiko_bg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
