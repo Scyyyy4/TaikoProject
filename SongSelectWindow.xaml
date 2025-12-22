@@ -64,7 +64,7 @@
                     <TextBlock Text="SELECT DIFFICULTY" FontSize="20" FontWeight="Bold" 
                                Foreground="#FFD15858" HorizontalAlignment="Center" Margin="0,0,0,15" FontFamily="Arial"/>
                     
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="15">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
                         <Button x:Name="DifficultyEasy" Content="EASY" Width="120" Height="45" 
                                 Background="#FF3E3E40" BorderBrush="#FF5BC0DE" Foreground="White"
                                 FontSize="16" FontWeight="Bold" Click="DifficultyButton_Click" Tag="easy"
@@ -85,7 +85,7 @@
         </Border>
 
         <!-- button area -->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Button x:Name="BackButton" Content="BACK" Width="120" Height="45" 
                     Background="#FF2D2D30" BorderBrush="#FFD15858" Foreground="White"
                     FontSize="16" FontWeight="Bold" Click="BackButton_Click"

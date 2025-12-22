@@ -102,7 +102,8 @@
         </Border>
 
         <!-- button area -->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            
             <Button x:Name="RetryButton" Content="RETRY" Width="180" Height="45" 
                     Background="#FF3E3E40" BorderBrush="#FFD15858" Foreground="White"
                     FontSize="18" FontWeight="Bold" Click="RetryButton_Click"

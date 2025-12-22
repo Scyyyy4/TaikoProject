@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Controls;   // Button, StackPanel 等
+using System.Windows.Shapes;     // Ellipse 等
 
 namespace TaikoProject
 {

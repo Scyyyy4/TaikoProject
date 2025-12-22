@@ -16,7 +16,7 @@
     <Grid>
         <Grid.Background>
             <!-- 修正资源路径 -->
-            <ImageBrush ImageSource="pack://application:,,,/Resources/taiko_bg.jpg" 
+            <ImageBrush ImageSource="pack://application:,,,/Resource/taiko_bg.png" 
                         Stretch="UniformToFill" 
                         Opacity="0.8"/>
         </Grid.Background>
@@ -30,11 +30,12 @@
                        FontFamily="Yu Gothic UI" 
                        Margin="0,0,0,40"
                        HorizontalAlignment="Center">
-                <TextBlock.Shadow>
-                    <DropShadowBitmapEffect Color="DarkRed" 
-                                           ShadowDepth="3" 
-                                           Softness="0.3"/>
-                </TextBlock.Shadow>
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="DarkRed"
+                          ShadowDepth="3"
+                          BlurRadius="5"
+                          Opacity="0.7"/>
+                </TextBlock.Effect>
             </TextBlock>
             
             <TextBlock Text="Taiko no Tatsujin" 

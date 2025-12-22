@@ -91,10 +91,10 @@ namespace TaikoProject
             try
             {
                 // Load red hit sound
-                _redHitSound.Open(new Uri("pack://application:,,,/Resources/sounds/red_hit.wav"));
+                _redHitSound.Open(new Uri("pack://application:,,,/Resource/red.wav"));
                 
                 // Load blue hit sound
-                _blueHitSound.Open(new Uri("pack://application:,,,/Resources/sounds/blue_hit.wav"));
+                _blueHitSound.Open(new Uri("pack://application:,,,/Resource/blue.wav"));
             }
             catch (Exception ex)
             {
