@@ -280,7 +280,7 @@ namespace TaikoProject
         /// </summary>
         private void GameWindow_KeyDown(object sender, KeyEventArgs e)
         {
-            Console.WriteLine($"Key pressed: {e.Key}");
+            //Console.WriteLine($"Key pressed: {e.Key}");
             //test for red and blue hits
             bool isRedHit = (e.Key == Key.D || e.Key == Key.F);
             bool isBlueHit = (e.Key == Key.J || e.Key == Key.K);

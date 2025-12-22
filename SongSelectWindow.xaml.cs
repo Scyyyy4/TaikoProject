@@ -35,9 +35,10 @@ namespace TaikoProject
             _songs = new List<SongInfo>
             {
                 new SongInfo { 
-                    Title = "Example Song", 
-                    Artist = "Artist Name", 
-                    FilePath = "example.mp3",
+                    Title = "Leaving No One Behind", 
+                    Artist = "Christian Andersen",
+                    FilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                                          "Resource", "examplesong.wav"),
                     ChartPath = "example_chart.txt"
                 }
             };

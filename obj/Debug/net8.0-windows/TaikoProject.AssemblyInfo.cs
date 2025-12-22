@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TaikoProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6bb7e5795989abe37f320109478a3a2c31350537")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+78b119f070c66c57d6faad9fb507198dbc67f969")]
 [assembly: System.Reflection.AssemblyProductAttribute("TaikoProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TaikoProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

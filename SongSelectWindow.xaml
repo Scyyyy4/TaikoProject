@@ -44,12 +44,21 @@
                                 </Grid.ColumnDefinitions>
                                 
                                 <!-- song cover -->
-                                <Border Grid.Column="0" Width="80" Height="80" Background="#FF4A4A4A" CornerRadius="5"/>
+                                <!-- song cover -->
+                                <Border Grid.Column="0"
+                                     Width="80" Height="80"
+                                        Background="#FF4A4A4A"
+                                     CornerRadius="5">
+                                    <Image Source="/Resource/cover.png"
+                                        Stretch="UniformToFill"
+                                        ClipToBounds="True"/>
+                                </Border>
+
                                 
                                 <!-- song info -->
                                 <StackPanel Grid.Column="1" Margin="20,0,0,0" VerticalAlignment="Center">
-                                    <TextBlock Text="Example Song" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Arial"/>
-                                    <TextBlock Text="Artist Name" FontSize="14" Foreground="#FFA0A0A0" Margin="0,5,0,0" FontFamily="Arial"/>
+                                    <TextBlock Text="Leaving No One Behind" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Arial"/>
+                                    <TextBlock Text="Christian Andersen" FontSize="14" Foreground="#FFA0A0A0" Margin="0,5,0,0" FontFamily="Arial"/>
                                 </StackPanel>
                                 
                                 <!-- selection pointer -->
