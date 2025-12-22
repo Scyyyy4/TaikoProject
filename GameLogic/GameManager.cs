@@ -7,44 +7,78 @@ using System.Threading.Tasks;
 
 namespace TaikoProject.Core
 {
-    /// <summary>
-    /// Core logic for managing a game:
-    /// - Sheet music (note list)
-    /// - Current time
-    /// - Score management
-    /// - Game over status
-    /// Here's the framework; the specific decision logic will be filled in by B.
-    /// </summary>
+    
     public class GameManager
     {
-        /// <summary>
-        /// All notes in the current game (single-player mode).
-        /// This can be expanded into multiple lists when creating multiple difficulty levels/2P modes in the future.
-        /// </summary>
-        public List<Note> Notes { get; private set; }
 
-        /// <summary>
-        /// Scores and judgment statistics.
-        /// </summary>
-        public ScoreManager ScoreManager { get; private set; }
+        //---NEW ADDED---
+        // Timing Windows (seconds)
+        public const double PERFECT_WINDOW = 0.08;
+        public const double GOOD_WINDOW = 0.15;
+        public const double BAD_WINDOW = 0.25;
 
         /// <summary>
         ///The current game time (in seconds).
         /// This is accumulated by deltaTime passed from A during each Update.
         /// </summary>
-        public double CurrentTime { get; private set; }
+        public double CurrentTime { get; private set; } = 0.0;
+
+        /// <summary>
+        /// All notes in the current game (single-player mode).
+        /// This can be expanded into multiple lists when creating multiple difficulty levels/2P modes in the future.
+        /// </summary>
+        public List<Note> Notes { get; private set; } = new List<Note>();
+
+        /// <summary>
+        /// Scores and judgment statistics.
+        /// </summary>
+        public ScoreManager ScoreManager { get; private set; } = new ScoreManager();
+
 
         /// <summary>
         /// Has the game ended (song finished playing, all notes processed)?
         /// GameWindow will redirect to the Result screen based on this.
         /// </summary>
-        public bool IsFinished { get; private set; }
+        public bool IsFinished { get; private set; } = false;
+
+        // ---NEW ADDED---
+        // Show last judgement text
+        public NoteJudgement LastJudgement { get; private set; } = NoteJudgement.None;
+
+        
+        private double _songLengthSeconds = 0.0;
+        private const double END_BUFFER_SECONDS = 2.0;
+
 
         public GameManager()
         {
-            ScoreManager = new ScoreManager();
-            Notes = new List<Note>();
+            //ScoreManager = new ScoreManager();
+            //Notes = new List<Note>();
         }
+
+
+        // ---NEW ADDED--
+        // Optional. If we inject notes from outside
+        public void Initialize(IEnumerable<Note> notes)
+        {
+            Notes = notes.OrderBy(n => n.Time).ToList();
+
+            CurrentTime = 0.0;
+            IsFinished = false;
+            LastJudgement = NoteJudgement.None;
+            ScoreManager.ResetAll();
+
+            foreach (var n in Notes)
+            {
+                n.IsProcessed = false;
+                n.Judgement = NoteJudgement.None;
+                n.ProcessedAtTime = null;
+            }
+
+            double lastNoteTime = Notes.Count > 0 ? Notes.Max(n => n.Time) : 0.0;
+            _songLengthSeconds = lastNoteTime + END_BUFFER_SECONDS;
+        }
+
 
         /// <summary>
         /// Start a game:
@@ -54,14 +88,35 @@ namespace TaikoProject.Core
         /// </summary>
         public void StartGame()
         {
-            CurrentTime = 0;
+            // Reset state
+            CurrentTime = 0.0;
             IsFinished = false;
-            Notes.Clear();
+            LastJudgement = NoteJudgement.None;
+            ScoreManager.ResetAll();
 
-            // TODO: Here are some hard-coded notes for easier testing.
-            // For example: a red drum at 2 seconds, a blue drum at 3 seconds.
-            Notes.Add(new Note { Time = 2.0, Color = NoteColor.Red });
-            Notes.Add(new Note { Time = 3.0, Color = NoteColor.Blue });
+
+            // simple test chart
+            Notes = new List<Note>
+            {
+                new Note { Time = 1.00, Color = NoteColor.Red },
+                new Note { Time = 1.50, Color = NoteColor.Blue },
+                new Note { Time = 2.00, Color = NoteColor.Red },
+                new Note { Time = 2.50, Color = NoteColor.Blue },
+                new Note { Time = 3.00, Color = NoteColor.Red },
+                new Note { Time = 3.50, Color = NoteColor.Blue },
+            };
+
+            foreach (var n in Notes)
+            {
+                n.IsProcessed = false;
+                n.Judgement = NoteJudgement.None;
+                n.ProcessedAtTime = null;
+            }
+
+            // Set song length (baseline: last note + buffer)
+            double lastNoteTime = Notes.Count > 0 ? Notes.Max(n => n.Time) : 0.0;
+            _songLengthSeconds = lastNoteTime + END_BUFFER_SECONDS;
+
         }
 
         /// <summary>
@@ -72,15 +127,31 @@ namespace TaikoProject.Core
         {
             if (IsFinished) return;
 
-            // Accumulate the current time.
             CurrentTime += deltaTime;
 
-            // TODO: B Update the note status here based on CurrentTime,
-            // Determine which notes have been missed, whether to mark them as Bad, etc.
-            // TODO: When the song ends and all notes have been processed, set IsFinished to true.
-            // For now, let's write a simple condition, for example, if the time is greater than a certain value:
-            // if (CurrentTime > 10.0) IsFinished = true;
+            // Missed notes become Bad
+            foreach (var note in Notes)
+            {
+                if (note.IsProcessed) continue;
+
+                // If we passed the note beyond allowed window, then bad
+                if (CurrentTime > note.Time + BAD_WINDOW)
+                {
+                    note.IsProcessed = true;
+                    note.Judgement = NoteJudgement.Bad;
+                    note.ProcessedAtTime = CurrentTime;
+
+                    ScoreManager.AddBad();
+                    LastJudgement = NoteJudgement.Bad;
+                }
+            }
+            // finished when time passed estimated song length AND all notes processed
+            if (CurrentTime >= _songLengthSeconds && Notes.All(n => n.IsProcessed))
+            {
+                IsFinished = true;
+            }
         }
+
 
         /// <summary>
         /// This is called by GameWindow when the player presses a key (red/blue).
@@ -91,11 +162,54 @@ namespace TaikoProject.Core
         {
             if (IsFinished) return;
 
-            // TODO: B Complete:
-            // 1. Find the note of the same color that is closest to the current time and has not been processed in Notes.
-            // 2. Calculate the time difference and determine Perfect/Good/Bad based on the difference.
-            // 3. Call ScoreManager.AddPerfect/AddGood/AddBad.
-            // 4. Mark the note as processed (a status field needs to be added to the Note).
+            // 1) Find the closest unprocessed note (any color)
+            var closest = Notes
+                .Where(n => !n.IsProcessed)
+                .OrderBy(n => Math.Abs(CurrentTime - n.Time))
+                .FirstOrDefault();
+
+            if (closest == null) return;
+
+            double diff = Math.Abs(CurrentTime - closest.Time);
+
+            // If too far away from any note, ignore keypress
+            if (diff > BAD_WINDOW) return;
+
+            // 2) If wrong color: Bad + break combo, and mark note processed
+            if (closest.Color != color)
+            {
+                closest.IsProcessed = true;
+                closest.ProcessedAtTime = CurrentTime;
+                closest.Judgement = NoteJudgement.Bad;
+
+                ScoreManager.AddBad();
+                LastJudgement = NoteJudgement.Bad;
+                return;
+            }
+
+            // 3) Correct color: judge by timing windows
+            closest.IsProcessed = true;
+            closest.ProcessedAtTime = CurrentTime;
+
+            if (diff <= PERFECT_WINDOW)
+            {
+                closest.Judgement = NoteJudgement.Perfect;
+                ScoreManager.AddPerfect();
+                LastJudgement = NoteJudgement.Perfect;
+            }
+            else if (diff <= GOOD_WINDOW)
+            {
+                closest.Judgement = NoteJudgement.Good;
+                ScoreManager.AddGood();
+                LastJudgement = NoteJudgement.Good;
+            }
+            else
+            {
+                closest.Judgement = NoteJudgement.Bad;
+                ScoreManager.AddBad();
+                LastJudgement = NoteJudgement.Bad;
+            }
+
         }
     }
 }

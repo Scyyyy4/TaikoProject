@@ -15,6 +15,16 @@ namespace TaikoProject.Core
         Blue
     }
 
+    // ---ADDED---
+    // Judgment result for a note.
+    public enum NoteJudgement
+    {
+        None,
+        Perfect,
+        Good,
+        Bad
+    }
+
     /// <summary>
     /// Represents a note on a musical score.
     // Currently only includes: appearance time + color.
@@ -28,10 +38,25 @@ namespace TaikoProject.Core
         /// </summary>
         public double Time { get; set; }
 
+
         /// <summary>
         /// Is this note from a red drum or a blue drum?
         /// In UI design, you can also select different images based on color.
         /// </summary>
         public NoteColor Color { get; set; }
+
+
+        //---NEW ADDED---
+        // Whether this note has already been handled
+        // Used for prevention of double-scoring
+        public bool IsProcessed { get; set; } = false;
+        //---NEW ADDED---
+        // The final judgement assigned to this note
+        public NoteJudgement Judgement { get; set; } = NoteJudgement.None;
+
+        //---NEW ADDED---
+        //Actual time the note was processed
+        //For Debugging
+        public double? ProcessedAtTime { get; set; } = null;
     }
 }
