@@ -5,13 +5,96 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaikoProject"
         mc:Ignorable="d"
-        Title="SongSelectWindow" Height="450" Width="800">
+        Title="Taiko no Tatsujin - Song Selection" Height="600" Width="1000"
+        Background="#FF1E1E1E" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Start Game"
-        Width="140" Height="40"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        Click="StartGameButton_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
 
+        <!-- title -->
+        <TextBlock Grid.Row="0" Text="SELECT SONG" 
+                   FontSize="36" FontWeight="Bold" 
+                   Foreground="#FFD15858" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center"
+                   FontFamily="Arial"/>
+
+        <!-- song and difficulty selection -->
+        <Border Grid.Row="1" Margin="50" Background="#FF2D2D30" CornerRadius="10" Padding="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <!-- song list -->
+                <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" MaxHeight="250">
+                    <StackPanel>
+                        <!-- song item -->
+                        <Border x:Name="SongItem0" Tag="0" Background="#FF3E3E40" CornerRadius="8" Margin="10" Padding="15" MouseDown="SongItem_MouseDown">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                <!-- song cover -->
+                                <Border Grid.Column="0" Width="80" Height="80" Background="#FF4A4A4A" CornerRadius="5"/>
+                                
+                                <!-- song info -->
+                                <StackPanel Grid.Column="1" Margin="20,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="Example Song" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Arial"/>
+                                    <TextBlock Text="Artist Name" FontSize="14" Foreground="#FFA0A0A0" Margin="0,5,0,0" FontFamily="Arial"/>
+                                </StackPanel>
+                                
+                                <!-- selection pointer -->
+                                <Ellipse Grid.Column="2" Width="20" Height="20" Fill="#FFD15858" Visibility="Visible" x:Name="SelectedIndicator0"/>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+                
+                <!-- difficulty selection -->
+                <StackPanel Grid.Row="2" Margin="0,10,0,0">
+                    <TextBlock Text="SELECT DIFFICULTY" FontSize="20" FontWeight="Bold" 
+                               Foreground="#FFD15858" HorizontalAlignment="Center" Margin="0,0,0,15" FontFamily="Arial"/>
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="15">
+                        <Button x:Name="DifficultyEasy" Content="EASY" Width="120" Height="45" 
+                                Background="#FF3E3E40" BorderBrush="#FF5BC0DE" Foreground="White"
+                                FontSize="16" FontWeight="Bold" Click="DifficultyButton_Click" Tag="easy"
+                                FontFamily="Arial" BorderThickness="2"/>
+                        
+                        <Button x:Name="DifficultyNormal" Content="NORMAL" Width="120" Height="45" 
+                                Background="#FFD15858" BorderBrush="#FFB84747" Foreground="White"
+                                FontSize="16" FontWeight="Bold" Click="DifficultyButton_Click" Tag="normal"
+                                FontFamily="Arial" BorderThickness="2"/>
+                        
+                        <Button x:Name="DifficultyHard" Content="HARD" Width="120" Height="45" 
+                                Background="#FF3E3E40" BorderBrush="#FFD9534F" Foreground="White"
+                                FontSize="16" FontWeight="Bold" Click="DifficultyButton_Click" Tag="hard"
+                                FontFamily="Arial" BorderThickness="2"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- button area -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20">
+            <Button x:Name="BackButton" Content="BACK" Width="120" Height="45" 
+                    Background="#FF2D2D30" BorderBrush="#FFD15858" Foreground="White"
+                    FontSize="16" FontWeight="Bold" Click="BackButton_Click"
+                    FontFamily="Arial" BorderThickness="2"/>
+                    
+            <Button x:Name="StartGameButton" Content="START GAME" Width="180" Height="45" 
+                    Background="#FFD15858" BorderBrush="#FFB84747" Foreground="White"
+                    FontSize="18" FontWeight="Bold" Click="StartGameButton_Click"
+                    FontFamily="Arial" BorderThickness="2"/>
+        </StackPanel>
     </Grid>
 </Window>
