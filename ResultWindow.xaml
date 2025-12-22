@@ -5,13 +5,113 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaikoProject"
         mc:Ignorable="d"
-        Title="ResultWindow" Height="450" Width="800">
+        Title="Game Results" Height="600" Width="1000"
+        Background="#FF1E1E1E"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Back to Song Select"
-        Width="180" Height="40"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        Click="BackButton_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
 
+        <!-- title -->
+        <TextBlock Grid.Row="0" Text="GAME RESULT" 
+                   FontSize="36" FontWeight="Bold" 
+                   Foreground="#FFD15858" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center"
+                   FontFamily="Arial"/>
+
+        <!-- result details -->
+        <Border Grid.Row="1" Margin="50" Background="#FF2D2D30" CornerRadius="10" Padding="30">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- song name -->
+                <TextBlock Grid.Row="0" x:Name="SongNameText" Text="Song: Example Song" 
+                           FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+
+                <!-- score -->
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="TOTAL SCORE" FontSize="20" Foreground="#FFA0A0A0"/>
+                    <TextBlock Grid.Column="1" x:Name="ScoreText" Text="0" FontSize="28" FontWeight="Bold" Foreground="#FFD15858" Margin="20,0,0,0"/>
+                </Grid>
+
+                <!-- combo -->
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="MAX COMBO" FontSize="20" Foreground="#FFA0A0A0"/>
+                    <TextBlock Grid.Column="1" x:Name="MaxComboText" Text="0" FontSize="28" FontWeight="Bold" Foreground="#FF5BC0DE" Margin="20,0,0,0"/>
+                </Grid>
+
+                <!-- judgement -->
+                <Grid Grid.Row="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBlock Grid.Column="0" Text="JUDGEMENT" FontSize="20" Foreground="#FFA0A0A0"/>
+                    
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                        <TextBlock Text="PERFECT" FontSize="16" Foreground="#FFFFD753" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="PerfectCountText" Text="0" FontSize="24" FontWeight="Bold" Foreground="#FFFFD753" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Column="2" HorizontalAlignment="Center" Margin="20,0,20,0">
+                        <TextBlock Text="GOOD" FontSize="16" Foreground="#FF5BC0DE" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="GoodCountText" Text="0" FontSize="24" FontWeight="Bold" Foreground="#FF5BC0DE" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Column="3" HorizontalAlignment="Center">
+                        <TextBlock Text="BAD" FontSize="16" Foreground="#FFD9534F" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="BadCountText" Text="0" FontSize="24" FontWeight="Bold" Foreground="#FFD9534F" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- accuracy -->
+                <Grid Grid.Row="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="ACCURACY" FontSize="20" Foreground="#FFA0A0A0"/>
+                    <TextBlock Grid.Column="1" x:Name="AccuracyText" Text="100.00%" FontSize="28" FontWeight="Bold" Foreground="#FF8BC34A" Margin="20,0,0,0"/>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <!-- button area -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20">
+            <Button x:Name="RetryButton" Content="RETRY" Width="180" Height="45" 
+                    Background="#FF3E3E40" BorderBrush="#FFD15858" Foreground="White"
+                    FontSize="18" FontWeight="Bold" Click="RetryButton_Click"
+                    FontFamily="Arial" BorderThickness="2"/>
+                    
+            <Button x:Name="BackToSongSelectButton" Content="SELECT ANOTHER SONG" Width="240" Height="45" 
+                    Background="#FFD15858" BorderBrush="#FFB84747" Foreground="White"
+                    FontSize="18" FontWeight="Bold" Click="BackToSongSelectButton_Click"
+                    FontFamily="Arial" BorderThickness="2"/>
+        </StackPanel>
     </Grid>
 </Window>
