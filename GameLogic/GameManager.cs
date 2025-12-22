@@ -55,6 +55,7 @@ namespace TaikoProject.Core
             //ScoreManager = new ScoreManager();
             //Notes = new List<Note>();
         }
+        
 
 
         // ---NEW ADDED--
@@ -210,6 +211,10 @@ namespace TaikoProject.Core
                 LastJudgement = NoteJudgement.Bad;
             }
 
+        }
+        public void ClearLastJudgement()
+        {
+            LastJudgement = NoteJudgement.None;
         }
     }
 }

@@ -54,8 +54,9 @@ namespace TaikoProject
             
             // Create and start a game with the selected difficulty
             _gameManager = new GameManager();
-            _gameManager.StartGame(_selectedSong.ChartPath, _difficulty);
-            
+            //_gameManager.StartGame(_selectedSong.ChartPath, _difficulty);
+            _gameManager.StartGame();
+
             // Update song title display
             SongTitleText.Text = $"Now Playing: {_selectedSong.Title} ({_difficulty.ToUpper()})";
             
@@ -114,7 +115,7 @@ namespace TaikoProject
                 if (!File.Exists(musicPath))
                 {
                     // Use a fallback path if file doesn't exist
-                    musicPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "music", "background_music.mp3");
+                    musicPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "music", "background_music.mp3");
                 }
                 
                 _backgroundMusic.Open(new Uri(musicPath, UriKind.Absolute));
@@ -172,43 +173,42 @@ namespace TaikoProject
         /// </summary>
         private void RefreshUI()
         {
-            // Update score and combo displays
             ScoreText.Text = _gameManager.ScoreManager.Score.ToString();
             ComboText.Text = _gameManager.ScoreManager.Combo.ToString();
-            
-            // Update judgment display (clear after 1 second)
-            if (!string.IsNullOrEmpty(_gameManager.LastJudgment))
+
+            if (_gameManager.LastJudgement != NoteJudgement.None)
             {
+                var j = _gameManager.LastJudgement;
+
                 Dispatcher.Invoke(() =>
                 {
-                    JudgmentText.Text = _gameManager.LastJudgment;
-                    JudgmentText.Foreground = GetJudgmentColor(_gameManager.LastJudgment);
-                    
-                    // Clear judgment text after a delay
+                    string text = j.ToString().ToUpper();
+                    JudgmentText.Text = text;
+                    JudgmentText.Foreground = GetJudgmentColor(j);
+
                     var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
-                    timer.Tick += (s, e) => 
+                    timer.Tick += (s, e) =>
                     {
                         JudgmentText.Text = "";
                         timer.Stop();
                     };
                     timer.Start();
                 });
-                
-                // Clear the last judgment so it doesn't repeat
-                _gameManager.LastJudgment = null;
+
+                _gameManager.ClearLastJudgement();
             }
-            
-            // Update note positions
+
             UpdateNotePositions();
         }
 
-        private Brush GetJudgmentColor(string judgment)
+
+        private Brush GetJudgmentColor(NoteJudgement judgment)
         {
             return judgment switch
             {
-                "PERFECT" => new SolidColorBrush(Color.FromRgb(255, 217, 83)), // Yellow-gold
-                "GOOD" => new SolidColorBrush(Color.FromRgb(89, 192, 222)),   // Blue
-                "BAD" => new SolidColorBrush(Color.FromRgb(217, 83, 79)),     // Red
+                NoteJudgement.Perfect => new SolidColorBrush(Color.FromRgb(255, 217, 83)), // Yellow-gold
+                NoteJudgement.Good => new SolidColorBrush(Color.FromRgb(89, 192, 222)),   // Blue
+                NoteJudgement.Bad => new SolidColorBrush(Color.FromRgb(217, 83, 79)),     // Red
                 _ => Brushes.White
             };
         }
@@ -295,7 +295,7 @@ namespace TaikoProject
                 
                 // Process the hit in game logic
                 var color = isRedHit ? NoteColor.Red : NoteColor.Blue;
-                _gameManager.ProcessHit(color, _backgroundMusic.Position.TotalSeconds);
+                _gameManager.ProcessHit(color);
             }
         }
     }

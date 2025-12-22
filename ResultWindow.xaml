@@ -24,7 +24,7 @@
                    FontFamily="Arial"/>
 
         <!-- result details -->
-        <Border Grid.Row="1" Margin="50" Background="#FF2D2D30" CornerRadius="10" Padding="30">
+        <Border Grid.Row="1" Margin="50,0,50,96" Background="#FF2D2D30" CornerRadius="10" Padding="30" Grid.RowSpan="2">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -70,19 +70,19 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <TextBlock Grid.Column="0" Text="JUDGEMENT" FontSize="20" Foreground="#FFA0A0A0"/>
-                    
+
                     <StackPanel Grid.Column="1" HorizontalAlignment="Center">
                         <TextBlock Text="PERFECT" FontSize="16" Foreground="#FFFFD753" HorizontalAlignment="Center"/>
                         <TextBlock x:Name="PerfectCountText" Text="0" FontSize="24" FontWeight="Bold" Foreground="#FFFFD753" HorizontalAlignment="Center"/>
                     </StackPanel>
-                    
+
                     <StackPanel Grid.Column="2" HorizontalAlignment="Center" Margin="20,0,20,0">
                         <TextBlock Text="GOOD" FontSize="16" Foreground="#FF5BC0DE" HorizontalAlignment="Center"/>
                         <TextBlock x:Name="GoodCountText" Text="0" FontSize="24" FontWeight="Bold" Foreground="#FF5BC0DE" HorizontalAlignment="Center"/>
                     </StackPanel>
-                    
+
                     <StackPanel Grid.Column="3" HorizontalAlignment="Center">
                         <TextBlock Text="BAD" FontSize="16" Foreground="#FFD9534F" HorizontalAlignment="Center"/>
                         <TextBlock x:Name="BadCountText" Text="0" FontSize="24" FontWeight="Bold" Foreground="#FFD9534F" HorizontalAlignment="Center"/>
@@ -103,12 +103,12 @@
 
         <!-- button area -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
-            
+
             <Button x:Name="RetryButton" Content="RETRY" Width="180" Height="45" 
                     Background="#FF3E3E40" BorderBrush="#FFD15858" Foreground="White"
                     FontSize="18" FontWeight="Bold" Click="RetryButton_Click"
                     FontFamily="Arial" BorderThickness="2"/>
-                    
+
             <Button x:Name="BackToSongSelectButton" Content="SELECT ANOTHER SONG" Width="240" Height="45" 
                     Background="#FFD15858" BorderBrush="#FFB84747" Foreground="White"
                     FontSize="18" FontWeight="Bold" Click="BackToSongSelectButton_Click"

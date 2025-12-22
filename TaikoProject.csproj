@@ -9,10 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resource\blue.wav" />
+    <None Remove="Resource\red.wav" />
     <None Remove="Resource\taiko_bg.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resource\blue.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\red.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resource\taiko_bg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
