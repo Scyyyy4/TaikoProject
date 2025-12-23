@@ -11,7 +11,10 @@
   <ItemGroup>
     <None Remove="Resource\blue.wav" />
     <None Remove="Resource\cover.png" />
+    <None Remove="Resource\easy.txt" />
     <None Remove="Resource\examplesong.wav" />
+    <None Remove="Resource\hard.txt" />
+    <None Remove="Resource\normal.txt" />
     <None Remove="Resource\red.wav" />
     <None Remove="Resource\taiko_bg.png" />
   </ItemGroup>
@@ -20,7 +23,16 @@
     <Content Include="Resource\blue.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resource\easy.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resource\examplesong.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\hard.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\normal.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resource\red.wav">

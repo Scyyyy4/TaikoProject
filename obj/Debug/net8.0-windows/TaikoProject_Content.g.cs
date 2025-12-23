@@ -9,7 +9,10 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/blue.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/easy.txt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/examplesong.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/hard.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/normal.txt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/red.wav")]
 
 

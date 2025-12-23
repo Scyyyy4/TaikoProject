@@ -11,6 +11,7 @@ using System.Windows.Threading;
 using TaikoProject.Core;
 using System.Windows.Media.Animation;
 
+
 namespace TaikoProject
 {
     /// <summary>
@@ -55,7 +56,11 @@ namespace TaikoProject
             // Create and start a game with the selected difficulty
             _gameManager = new GameManager();
             //_gameManager.StartGame(_selectedSong.ChartPath, _difficulty);
-            _gameManager.StartGame();
+            // 根据难度加载 txt 谱面，生成 List<Note>
+            var notes = LoadChartForDifficulty(_selectedSong, _difficulty);
+
+            // 把谱面注入 GameManager
+            _gameManager.Initialize(notes);
 
             // Update song title display
             SongTitleText.Text = $"Now Playing: {_selectedSong.Title} ({_difficulty.ToUpper()})";
@@ -303,6 +308,58 @@ namespace TaikoProject
                 var color = isRedHit ? NoteColor.Red : NoteColor.Blue;
                 _gameManager.ProcessHit(color);
             }
+        }
+        private List<Note> LoadChartForDifficulty(SongInfo song, string difficulty)
+        {
+            string chartPath;
+
+            switch (difficulty.ToLower())
+            {
+                case "easy":
+                    chartPath = song.EasyChartPath;
+                    break;
+                case "hard":
+                    chartPath = song.HardChartPath;
+                    break;
+                case "normal":
+                default:
+                    chartPath = song.NormalChartPath;
+                    break;
+            }
+
+            var notes = new List<Note>();
+
+            if (!File.Exists(chartPath))
+            {
+                MessageBox.Show($"Chart file not found:\n{chartPath}", "Chart Error",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                return notes;
+            }
+
+            foreach (var line in File.ReadAllLines(chartPath))
+            {
+                var trimmed = line.Trim();
+                if (string.IsNullOrEmpty(trimmed) || trimmed.StartsWith("#"))
+                    continue; // 支持空行和注释
+
+                var parts = trimmed.Split(',');
+                if (parts.Length != 2)
+                    continue;
+
+                if (!double.TryParse(parts[0], out double time))
+                    continue;
+
+                if (!Enum.TryParse<NoteColor>(parts[1], true, out var color))
+                    continue;
+
+                notes.Add(new Note
+                {
+                    Time = time,
+                    Color = color
+                });
+            }
+
+            return notes;
         }
     }
 }

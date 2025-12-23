@@ -1,0 +1,11 @@
+1.30,Red
+5.00,Blue
+9.00,Red
+13.00,Blue
+15.00,Red
+17.00,Blue
+21.00,Red
+25.00,Blue
+27.00,Red
+28.00,Blue
+28.57,Red

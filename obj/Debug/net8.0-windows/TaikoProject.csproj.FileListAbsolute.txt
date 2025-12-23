@@ -29,3 +29,6 @@ D:\CUHK\COURSES\year 4\sem 1\IERG 3080\code\TaikoProject\bin\Debug\net8.0-window
 D:\CUHK\COURSES\year 4\sem 1\IERG 3080\code\TaikoProject\bin\Debug\net8.0-windows\Resource\red.wav
 D:\CUHK\COURSES\year 4\sem 1\IERG 3080\code\TaikoProject\obj\Debug\net8.0-windows\TaikoProject_Content.g.cs
 D:\CUHK\COURSES\year 4\sem 1\IERG 3080\code\TaikoProject\bin\Debug\net8.0-windows\Resource\examplesong.wav
+D:\CUHK\COURSES\year 4\sem 1\IERG 3080\code\TaikoProject\bin\Debug\net8.0-windows\Resource\easy.txt
+D:\CUHK\COURSES\year 4\sem 1\IERG 3080\code\TaikoProject\bin\Debug\net8.0-windows\Resource\hard.txt
+D:\CUHK\COURSES\year 4\sem 1\IERG 3080\code\TaikoProject\bin\Debug\net8.0-windows\Resource\normal.txt

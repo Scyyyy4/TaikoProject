@@ -39,7 +39,12 @@ namespace TaikoProject
                     Artist = "Christian Andersen",
                     FilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
                                           "Resource", "examplesong.wav"),
-                    ChartPath = "example_chart.txt"
+                    EasyChartPath   = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                                          "Resource", "easy.txt"),
+            NormalChartPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                                          "Resource", "normal.txt"),
+            HardChartPath   = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                                          "Resource", "hard.txt"),
                 }
             };
         }
@@ -134,6 +139,8 @@ namespace TaikoProject
         public string Title { get; set; }
         public string Artist { get; set; }
         public string FilePath { get; set; } // 音频文件路径
-        public string ChartPath { get; set; } // 谱面文件路径
+        public string EasyChartPath { get; set; }
+        public string NormalChartPath { get; set; }
+        public string HardChartPath { get; set; }
     }
 }
