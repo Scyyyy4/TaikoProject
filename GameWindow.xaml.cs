@@ -36,7 +36,7 @@ namespace TaikoProject
         private List<Ellipse> _noteVisuals = new List<Ellipse>();
         private const double CANVAS_WIDTH = 800; // Width of the note canvas
         private const double CANVAS_HEIGHT = 100; // Height of the main lane
-        private const double HIT_POSITION = 680; // X position where notes should be hit (aligned with drum)
+        private const double HIT_POSITION = 80; // X position where notes should be hit (aligned with drum)
         private const double NOTE_SPEED = 300; // Pixels per second
 
         public GameWindow(SongInfo selectedSong, string difficulty)
@@ -238,8 +238,8 @@ namespace TaikoProject
                 {
                     // Calculate position based on time difference
                     double timeUntilHit = note.Time - _gameManager.CurrentTime;
-                    double xPos = CANVAS_WIDTH - (timeUntilHit * NOTE_SPEED);
-                    
+                    double xPos = HIT_POSITION + (timeUntilHit * NOTE_SPEED);
+
                     // Only show notes that are on screen
                     if (xPos > -50 && xPos < CANVAS_WIDTH + 50)
                     {

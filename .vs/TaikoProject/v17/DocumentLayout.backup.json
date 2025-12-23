@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|d:\\cuhk\\courses\\year 4\\sem 1\\ierg 3080\\code\\taikoproject\\gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|solutionrelative:gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|d:\\cuhk\\courses\\year 4\\sem 1\\ierg 3080\\code\\taikoproject\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|solutionrelative:gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|d:\\cuhk\\courses\\year 4\\sem 1\\ierg 3080\\code\\taikoproject\\gamelogic\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|solutionrelative:gamelogic\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|d:\\cuhk\\courses\\year 4\\sem 1\\ierg 3080\\code\\taikoproject\\resource\\easy.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|solutionrelative:resource\\easy.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
@@ -19,16 +31,8 @@
       "RelativeMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|solutionrelative:resource\\cover.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|d:\\cuhk\\courses\\year 4\\sem 1\\ierg 3080\\code\\taikoproject\\gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|solutionrelative:gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|d:\\cuhk\\courses\\year 4\\sem 1\\ierg 3080\\code\\taikoproject\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|d:\\cuhk\\courses\\year 4\\sem 1\\ierg 3080\\code\\taikoproject\\gamelogic\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|solutionrelative:gamelogic\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|d:\\cuhk\\courses\\year 4\\sem 1\\ierg 3080\\code\\taikoproject\\songselectwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|d:\\cuhk\\courses\\year 4\\sem 1\\ierg 3080\\code\\taikoproject\\songselectwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|solutionrelative:songselectwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|d:\\cuhk\\courses\\year 4\\sem 1\\ierg 3080\\code\\taikoproject\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|solutionrelative:gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B13B60A2-274E-4D1D-B77E-0B5EA35E9D24}|TaikoProject.csproj|d:\\cuhk\\courses\\year 4\\sem 1\\ierg 3080\\code\\taikoproject\\gamelogic\\note.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,82 +74,76 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "cover.png",
               "DocumentMoniker": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\Resource\\cover.png",
               "RelativeDocumentMoniker": "Resource\\cover.png",
               "ToolTip": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\Resource\\cover.png",
               "RelativeToolTip": "Resource\\cover.png",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-12-22T23:45:24.488Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-22T23:45:24.488Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
               "ToolTip": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-12-22T23:40:30.013Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-22T23:40:30.013Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "normal.txt",
               "DocumentMoniker": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\Resource\\normal.txt",
               "RelativeDocumentMoniker": "Resource\\normal.txt",
-              "ToolTip": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\Resource\\normal.txt*",
-              "RelativeToolTip": "Resource\\normal.txt*",
+              "ToolTip": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\Resource\\normal.txt",
+              "RelativeToolTip": "Resource\\normal.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAiwBgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-12-22T23:31:09.792Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-22T23:31:09.792Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "hard.txt",
               "DocumentMoniker": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\Resource\\hard.txt",
               "RelativeDocumentMoniker": "Resource\\hard.txt",
-              "ToolTip": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\Resource\\hard.txt*",
-              "RelativeToolTip": "Resource\\hard.txt*",
+              "ToolTip": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\Resource\\hard.txt",
+              "RelativeToolTip": "Resource\\hard.txt",
               "ViewState": "AgIAAFMAAAAAAAAAAAAiwGsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-12-22T23:31:05.779Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-22T23:31:05.779Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "easy.txt",
               "DocumentMoniker": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\Resource\\easy.txt",
               "RelativeDocumentMoniker": "Resource\\easy.txt",
               "ToolTip": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\Resource\\easy.txt",
               "RelativeToolTip": "Resource\\easy.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-12-22T23:30:58.93Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-22T23:30:58.93Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "SongSelectWindow.xaml",
               "DocumentMoniker": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\SongSelectWindow.xaml",
               "RelativeDocumentMoniker": "SongSelectWindow.xaml",
               "ToolTip": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\SongSelectWindow.xaml",
               "RelativeToolTip": "SongSelectWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-12-22T23:10:54.892Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-22T23:10:54.892Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "GameWindow.xaml",
               "DocumentMoniker": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\GameWindow.xaml",
               "RelativeDocumentMoniker": "GameWindow.xaml",
@@ -180,8 +174,7 @@
               "RelativeToolTip": "GameLogic\\ScoreManager.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAwwHMAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-22T21:35:47.087Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-22T21:35:47.087Z"
             },
             {
               "$type": "Document",
@@ -193,38 +186,37 @@
               "RelativeToolTip": "GameLogic\\Note.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-22T21:34:37.68Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-22T21:34:37.68Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "GameManager.cs",
               "DocumentMoniker": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\GameLogic\\GameManager.cs",
               "RelativeDocumentMoniker": "GameLogic\\GameManager.cs",
               "ToolTip": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\GameLogic\\GameManager.cs",
               "RelativeToolTip": "GameLogic\\GameManager.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAxwHgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-22T21:22:37.293Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "GameWindow.xaml.cs",
               "DocumentMoniker": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\GameWindow.xaml.cs",
               "RelativeDocumentMoniker": "GameWindow.xaml.cs",
-              "ToolTip": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\GameWindow.xaml.cs",
-              "RelativeToolTip": "GameWindow.xaml.cs",
-              "ViewState": "AgIAAFsBAAAAAAAAAAAYwGoBAAAJAAAAAAAAAA==",
+              "ToolTip": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\GameWindow.xaml.cs*",
+              "RelativeToolTip": "GameWindow.xaml.cs*",
+              "ViewState": "AgIAACAAAAAAAAAAAAAQwPMAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-22T21:21:33.835Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "SongSelectWindow.xaml.cs",
               "DocumentMoniker": "D:\\CUHK\\COURSES\\year 4\\sem 1\\IERG 3080\\code\\TaikoProject\\SongSelectWindow.xaml.cs",
               "RelativeDocumentMoniker": "SongSelectWindow.xaml.cs",
@@ -232,8 +224,7 @@
               "RelativeToolTip": "SongSelectWindow.xaml.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAxwC4AAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T12:59:18.662Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-21T12:59:18.662Z"
             }
           ]
         }
